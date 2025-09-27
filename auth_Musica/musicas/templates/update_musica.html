@@ -1,0 +1,50 @@
+{% extends 'skeleton.html' %}
+
+{% block title %}
+Update Music
+{% endblock %}
+
+{% block conteudo %}
+<div class="container my-5">
+  <div class="d-flex justify-content-start mb-4">
+    <a href="{% url 'musicas:list_musicas' %}" class="btn btn-outline-primary">
+      &larr; Back to List
+    </a>
+  </div>
+
+  <div class="card shadow-sm p-4">
+    <h3 class="mb-4">Update Music</h3>
+    <form action="{% url 'musicas:update_musica' Musica.id %}" method="post" novalidate>
+      {% csrf_token %}
+      <input type="hidden" name="_method" value="PUT">
+
+      <div class="mb-3">
+        <label for="nome" class="form-label fw-semibold">Name</label>
+        <input type="text" name="nome" id="nome" class="form-control" value="{{ musica.nome }}" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="album" class="form-label fw-semibold">Album</label>
+        <input type="text" name="album" id="album" class="form-control" value="{{ musica.album }}" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="artist" class="form-label fw-semibold">Artist</label>
+        <input type="text" name="artist" id="artist" class="form-control" value="{{ musica.artist }}" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="genre" class="form-label fw-semibold">Genre</label>
+        <input type="text" name="genre" id="genre" class="form-control" value="{{ musica.genre }}" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="releaseDate" class="form-label fw-semibold">Release Date</label>
+        <input type="date" name="releaseDate" id="releaseDate" class="form-control" value="{{ musica.releaseDate|date:'Y-m-d' }}" required>
+      </div>
+
+      <button type="submit" class="btn btn-success">Update Music</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

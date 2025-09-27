@@ -1,3 +1,24 @@
-<h1>
-    login
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Login</h1>
+    <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+        <div class='input-group flex-nowrap"'>
+        <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+        
+            <input type='text', class="form-control mb-3", placeholder="Type in your Username",name="email"></input>
+            
+            <input type='password', class='form-control mb-3', placeholder="Type in your password" name="password"></input>
+
+            <button class='btn btn-primary', type='submit'>Register</button>
+        </form>
+    </div>
+        
+</body>
+</html>

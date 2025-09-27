@@ -18,11 +18,22 @@
             
             <input type='password', class='form-control mb-3', placeholder="Type in your password" name="password"></input>
 
-            <input type='text', class='form-control mb-3', placeholder= "fav music genre" name='favGenre'></input>
-
-            <input type="text", class ='form-control mb-3', placeholder="What's your genre" name='genre'></input>
+            <input type='text', class='form-control mb-3', placeholder="fav music genre" name="favGenre"></input>
+            
+            <input type='text', class='form-control mb-3', placeholder="Genre" name="genre"></input>
 
             <button class='btn btn-primary', type='submit'>Register</button>
+
+        {% if show_messages %}
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li class="{{ message.tags }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        {% endif %}
+
         </form>
     </div>
         
